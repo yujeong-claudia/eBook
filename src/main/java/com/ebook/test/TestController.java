@@ -10,9 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ebook.mapper.LikeMapper;
+import com.ebook.mapper.UserMapper;
 
 @Controller
 public class TestController {
+	
+	@Autowired
+	private UserMapper userMapper;
 	
 	@Autowired
 	private LikeMapper likeMapper;
@@ -42,5 +46,11 @@ public class TestController {
 	@ResponseBody
 	public List<Map<String, Object>> test4() {
 		return likeMapper.selectLikeList(); //4 jsp
+	}
+	
+	@GetMapping("test5")
+	@ResponseBody
+	public List<Map<String, Object>> test5() {
+		return userMapper.selectUserList(); //5 jsp 한글테스트
 	}
 }
