@@ -1,0 +1,6 @@
+@charset "UTF-8";
+header{height: 100px; background-color: #6bcf1d}
+.contents{min-height: 500px;}
+
+.sign-up-box {width:600px;}
+.sign-up-table th {background-color:#6bcf1d;}
