@@ -3,9 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <div class="d-flex justify-content-between align-items-center h-100">
 	<%-- logo --%>
-	<div class="d-flex">
-		<h1>eBook</h1>
-		<img src="/static/img/eBook.jpg" alt="logo" width="50" height="50">
+	<div class="d-flex justiyif-content-center">
+		<img src="/static/img/eBook.jpg" alt="logo" width="330" height="100">
 	</div>
 	
 	<%-- 정보 --%>

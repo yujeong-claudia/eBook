@@ -46,6 +46,26 @@
 </div>
 <script>
 	$(document).ready(function() {
+		
+		// 중복확인 버튼
+		$("#loginIdCheckBtn").on('click', function() {
+			//alert("중복확인 버튼 클릭")
+			
+			// 경고문구 초기화
+			$("#idCheckLength").addClass("d-none");
+			$("#idCheckDuplicated").addClass("d-none");
+			$("#idCheckOk").addClass("d-none");
+			
+			// 4글자 미만으로 입력시 경고문구 노출
+			let loginId = $("#loginId").val().trim();
+			if (loginId.length < 4) {
+				$("#idCheckLength").removeClass("d-none");
+				return; 
+			}
+			
+		});
+		
+		
 		$("#signUpBtn").on('click', function(e) {
 			e.preventDefault();			
 			//alert("회원가입 버튼");
@@ -53,25 +73,39 @@
 			//validation check
 			let loginId = $("#loginId").val().trim();
 			let password = $("#password").val().trim();
+			let confirmPassword = $("#confirmPassword").val().trim();
 			let name = $("#name").val().trim();
 			let email = $("#email").val().trim();
 			
 			if (!loginId) {
-				alert("아이디를 입력해주세요!")
-				return; //submit아니라 click으로 했는데 return으로 해도 되는지? -> 넹
+				alert("아이디를 입력해주세요.")
+				return; 
 			}
-			if (!password) {
-				alert("비밀번호를 입력해주세요!")
-				return; //submit아니라 click으로 했는데 return으로 해도 되는지? 넹
+			if (!password || !confirmPassword) {
+				alert("비밀번호를 입력해주세요.")
+				return;
 			}
+			if (password != confirmPassword) {
+				alert("비밀번호가 일치하지 않습니다.")
+				return;
+			}
+			
 			if (!name) {
-				alert("이름을 입력해주세요!")
-				return; //submit아니라 click으로 했는데 return으로 해도 되는지? 넹
+				alert("이름을 입력해주세요.")
+				return; 
 			}
 			if (!email) {
-				alert("이메일을 입력해주세요!")
-				return; //submit아니라 click으로 했는데 return으로 해도 되는지? 넹
+				alert("이메일을 입력해주세요.")
+				return; 
 			}
+			
+			// 중복확인 검사
+			if ($("#idCheckOk").hasClass("d-none")) {
+				alert("중복 확인을 다시 해주세요.");
+				return;
+			}
+			
+			//alert("ajax 시작");
 
 		});
 	});
