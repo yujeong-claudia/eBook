@@ -15,6 +15,7 @@ public class UserController { //회원가입
 		return "template/layout";
 	}
 	
+	// 로그인
 	@GetMapping("/user/sign-in-view")
 	public String signInView() {
 		return "template/layout";
