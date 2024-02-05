@@ -58,19 +58,19 @@
 			
 			if (!loginId) {
 				alert("아이디를 입력해주세요!")
-				return; //submit아니라 click으로 했는데 return으로 해도 되는지?
+				return; //submit아니라 click으로 했는데 return으로 해도 되는지? -> 넹
 			}
 			if (!password) {
 				alert("비밀번호를 입력해주세요!")
-				return; //submit아니라 click으로 했는데 return으로 해도 되는지?
+				return; //submit아니라 click으로 했는데 return으로 해도 되는지? 넹
 			}
 			if (!name) {
 				alert("이름을 입력해주세요!")
-				return; //submit아니라 click으로 했는데 return으로 해도 되는지?
+				return; //submit아니라 click으로 했는데 return으로 해도 되는지? 넹
 			}
 			if (!email) {
 				alert("이메일을 입력해주세요!")
-				return; //submit아니라 click으로 했는데 return으로 해도 되는지?
+				return; //submit아니라 click으로 했는데 return으로 해도 되는지? 넹
 			}
 
 		});

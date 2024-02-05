@@ -14,6 +14,7 @@
 <%-- 내가 만든 스타일시트 --%>
 <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 
+
 </head>
 <body>
 	<div id="wrap">

@@ -5,7 +5,7 @@
 	<%-- logo --%>
 	<div class="d-flex">
 		<h1>eBook</h1>
-		<img src="/img/eBook.jpg" alt="logo">
+		<img src="/static/img/eBook.jpg" alt="logo" width="50" height="50">
 	</div>
 	
 	<%-- 정보 --%>
