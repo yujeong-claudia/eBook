@@ -7,17 +7,15 @@
 		<img src="/static/img/eBook.jpg" alt="logo" width="330" height="100">
 	</div>
 	
-	<%-- 정보 --%>
-	<div>
+	<%-- 로그인 정보 --%>
+	<div class="d-flex mr-5">
 		<%-- 로그인시 --%>
-		<c:if test="">
-			<span>000님 안녕하세요!</span>
-			<a>로그아웃</a>
-		</c:if>
+		<span class="text-white">000님 안녕하세요!</span>
+		<a href="/user/sign-out" class="ml-5 text-white font-weight-bold">로그아웃</a>
 		
-		<%-- 비로그인시 --%>
+		<%-- 비로그인시 
 		<c:if test="">
 			
-		</c:if>
+		</c:if>--%>
 	</div>
 </div>

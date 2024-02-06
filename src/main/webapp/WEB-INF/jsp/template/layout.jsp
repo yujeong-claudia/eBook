@@ -22,7 +22,7 @@
 			<jsp:include page="../include/header.jsp" />
 		</header>
 		<section class="contents my-5">
-			<jsp:include page="../user/signIn.jsp" />
+			<jsp:include page="../${viewName}.jsp" />
 		</section>
 	</div>
 </body>
