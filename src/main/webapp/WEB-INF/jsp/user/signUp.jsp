@@ -133,7 +133,7 @@
 			$.post(url, params) // request
 			.done(function(data) { // response, done 성공과 동일
 				if (data.code == 200) {
-					alert("가입을 환영합니다. \n 로그인 화면으로 이동합니다.")
+					alert("가입을 환영합니다.\n로그인 화면으로 이동합니다.")
 					location.href = "/user/sign-in-view";
 				} else {
 					// 로직 실패

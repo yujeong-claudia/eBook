@@ -16,6 +16,7 @@
 
 
 </head>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <body>
 	<div id="wrap">
 		<header>
