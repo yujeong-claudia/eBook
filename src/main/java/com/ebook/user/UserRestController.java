@@ -3,6 +3,8 @@ package com.ebook.user;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.security.auth.callback.PasswordCallback;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,4 +74,21 @@ public class UserRestController {
 		
 		return result;
 	}
+	
+	// 로그인 api
+	@PostMapping("/sign-in")
+	public Map<String, Object> signIn() {
+		
+		// 비밀번호 해싱
+		
+		// DB 조회
+		
+		// 응답값 - 무조건 성공
+		Map<String, Object> result = new HashMap<>();
+		result.put("code", 200);
+		result.put("result", "성공");
+		
+		return result;
+	}
+	
 }

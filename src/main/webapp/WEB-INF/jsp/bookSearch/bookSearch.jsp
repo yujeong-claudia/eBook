@@ -30,9 +30,26 @@
 				<div class="my-2"><a href="#"><b>10 </b>인생은 순간이다</a></div>
 			</div>
 		</div>
-		<!-- 배너 w:690-->
-		<div>
-			
+		<!-- 배너 -->
+		<div class="d-flex justiyif-content-center mt-5">
+			<img id="bannerImage" src="/static/img/banner1.jpg" alt="banner1" class="w-100">
 		</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function() {
+		// 이미지 3초 간격으로 변하기
+		let bannerSrcArr = ['banner1.jpg', 'banner2.jpg', 'banner3.jpg'];
+        let currentIndex = 0;
+        setInterval(function() {
+            $('#bannerImage').attr('src', bannerSrcArr[currentIndex]);
+            currentIndex++;
+
+            if (currentIndex > bannerSrcArr.length) { // 인덱스 값이 배열의 크기를 넘으면 0으로(처음 이미지) 세팅
+                currentIndex = 0;
+            }
+        }, 3000);
+
+	});
+
+</script>

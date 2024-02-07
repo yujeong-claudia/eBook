@@ -4,5 +4,6 @@ header{height: 100px; background-color: #66ff38}
 
 .sign-up-box {width:650px; background-color:#f5f5f5; margin-top:20px; box-shadow:5px 5px 5px 5px #BDC0C0;}
 .sign-up-subject {margin:20px; font-weight:bold;}
+.sign-in-box {width:400px;}
 
 a, a:hover {color:#000;}
