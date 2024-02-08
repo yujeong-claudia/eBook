@@ -46,17 +46,17 @@
 			}
 			
 			//AJAX: 화면 이동 되지 않음(콜백함수에서 이동) 응답값 JSON
-			let url = $(this).attr("action");
+			let url = $(this).attr('action');
 			console.log(url); // 지금 보내는 주소
 			let params = $(this).serialize(); // 폼태그에 있는 name 속성과 값으로 파라미터를 구성
 			console.log(params);
 			
 			$.post(url, params) // request
 			.done(function(data) { // response
-				if (data.code == 200) {
+				if (data.result == "성공") {
 					location.href = "/bookSearch/bookSearch-view";
 				} else {
-					alert("data.error_message")
+					alert(data.error_message)
 				}
 			});
 			

@@ -32,7 +32,7 @@
 		</div>
 		<!-- 배너 -->
 		<div class="d-flex justiyif-content-center mt-5">
-			<img id="img" src="/static/img/banner2.jpg" alt="banner2" class="w-100">
+			<img id="img" src="/static/img/banner1.jpg" alt="banner1" class="w-100">
 		</div>
 	</div>
 </div>
@@ -48,7 +48,7 @@
             if (currentIndex > bannerImg.length) { // 인덱스 값이 배열의 크기를 넘으면 0으로(처음 이미지) 세팅
                 currentIndex = 0;
             }
-        }, 3000);
+        }, 2000);
 
 	}); 
 
