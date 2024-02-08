@@ -10,7 +10,7 @@
 	<%-- 로그인 정보 --%>
 	<div class="d-flex mr-5">
 		<%-- 로그인시 --%>
-		<span class="text-white">000님 안녕하세요!</span>
+		<span class="text-white">${userName}님 안녕하세요!</span>
 		<a href="/user/sign-out" class="ml-5 text-white font-weight-bold">로그아웃</a>
 		
 		<%-- 비로그인시 
