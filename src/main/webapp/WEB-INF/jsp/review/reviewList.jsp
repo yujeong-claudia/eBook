@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="d-flex justify-content-center">
 	<div class="w-50">
 		<h1>리뷰 목록</h1>
@@ -7,22 +8,24 @@
 			<thead>
 				<tr>
 					<th>No.</th>
-					<th>Name</th>
+					<th>이름</th>
 					<th>제목</th>
 				</tr>
 			</thead>
 			<tbody>
+				<c:forEach items="${reviewList}" var="review">
 				<tr>
-					<td>1</td>
-					<td>김여름</td>
-					<td>재밌어요</td>
+					<td>${review.id}</td>
+					<td><a href="/review/review-create-view?reviewId=${review.id}">${review.subject}</a></td>
+					<td><a href="/review/review-create-view?reviewId=${review.id}">${review.content}</a></td>
 				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
-		<div class="d-flex justify-content-between mt-3">
-			<a href="#" class="btn btn-dark text-white">뒤로가기</a>
-			<a href="#" class="btn btn-secondary text-white">목록화면</a>
-			<a href="#" class="btn btn-dark text-white">글 작성</a>
+		<div class="d-flex justify-content-between mt-5">
+			<a href="/book/book-detail-view" class="btn btn-dark text-white">뒤로가기</a>
+			<a href="/bookSearch/bookSearch-view" class="btn btn-secondary text-white">검색목록</a>
+			<a href="/review/review-create-view" class="btn btn-dark text-white">리뷰작성</a>
 		</div>
 	</div>
 </div>

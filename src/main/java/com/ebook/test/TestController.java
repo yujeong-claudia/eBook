@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ebook.mapper.LikeMapper;
-import com.ebook.mapper.UserMapper;
+import com.ebook.like.mapper.LikeMapper;
+import com.ebook.user.mapper.UserMapper;
 
 @Controller
 public class TestController {

@@ -1,4 +1,4 @@
-package com.ebook.mapper;
+package com.ebook.like.mapper;
 
 import java.util.List;
 import java.util.Map;
