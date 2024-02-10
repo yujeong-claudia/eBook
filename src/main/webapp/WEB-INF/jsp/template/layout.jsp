@@ -14,7 +14,6 @@
 <%-- 내가 만든 스타일시트 --%>
 <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 
-
 </head>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <body>

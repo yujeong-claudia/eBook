@@ -10,7 +10,6 @@ public class AdminController {
 	
 	@GetMapping("/admin-create-view")
 	public String adminCreateView() {
-		
-		return "/book/bookcreate"; // 모르겠는데요..!
+		return "book/bookCreate";
 	}
 }

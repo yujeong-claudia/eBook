@@ -56,8 +56,8 @@ public class UserRestController {
 			@RequestParam("email") String email) {
 		
 		// md5 알고리즘(비밀번호 해싱)
-		// aaaa -> 74b8733745420d4d33f80c4663dc5e5
-		String hashedPassword = EncryptUtils.md5(password);
+		// aaaa -> 61be55a8e2f6b4e172338bddf184d6dbee29c98853e0a0485ecee7f27b9af0b4
+		String hashedPassword = EncryptUtils.sha256(password);
 		
 		// DB 조회 - insert
 		Integer userId = userBO.addUser(loginId, hashedPassword, name, email);
@@ -84,7 +84,7 @@ public class UserRestController {
 			HttpServletRequest request) {
 		
 		// 비밀번호 해싱 - md5
-		String hashedPassword = EncryptUtils.md5(password);
+		String hashedPassword = EncryptUtils.sha256(password);
 		
 		// DB 조회(loginId, 해싱된 비밀번호) => UserEntity
 		UserEntity user = userBO.getUserEntityByLoginIdPassword(loginId, hashedPassword);
