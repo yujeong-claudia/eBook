@@ -17,4 +17,6 @@ public class ReviewBO {
 	public List<Review> getReviewList(){
 		return reviewMapper.selectReviewList();
 	}
+	
+	//input:bookId, subject, content 	output: 
 }

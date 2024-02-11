@@ -6,6 +6,6 @@ header{height: 100px; background-color: #66ff38}
 .sign-up-subject {margin:20px; font-weight:bold;}
 .sign-in-box {width:400px;}
 .book-detail-box {width:400px;}
-.admin-box{width:600px;}
+.book-content-box{width:600px;}
 
 a, a:hover {color:#000;}

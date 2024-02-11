@@ -15,6 +15,4 @@ public class BookController {
 		model.addAttribute("viewName", "/book/bookDetail");
 		return "template/layout";
 	}
-	
-	
 }
