@@ -30,6 +30,6 @@ public class AdminBO {
 			bookCoverPath = fileManagerService.saveFile(file);
 		}
 		
-		//SadminMapper.insertAdmin(bookName, author, genre, page, publisher, content, bookCoverPath);
+		adminMapper.insertAdmin(bookName, author, genre, page, publisher, content, bookCoverPath);
 	}
 }

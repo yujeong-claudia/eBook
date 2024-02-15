@@ -21,6 +21,14 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-test
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 20m
+    nginx.ingress.kubernetes.io/client-body-buffer-size: 10m        
        
 mybatis:
   mapper-locations: mappers/*Mapper.xml 
