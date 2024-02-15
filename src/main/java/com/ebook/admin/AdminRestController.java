@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ebook.admin.bo.AdminBO;
+
+import jakarta.servlet.http.HttpSession;
 
 @RequestMapping("/admin")
 @RestController
@@ -25,10 +28,11 @@ public class AdminRestController {
 			@RequestParam("genre") String genre,
 			@RequestParam("page") int page,
 			@RequestParam("publisher") String publisher,
-			@RequestParam("content") String content) {
+			@RequestParam("content") String content,
+			@RequestParam("file") MultipartFile file) {
 		
 		// db insert
-		adminBO.addAdmin(bookName, author, genre, page, publisher, content);
+		adminBO.addAdmin(bookName, author, genre, page, publisher, content, file);
 		
 		// 응답값
 		Map<String, Object> result = new HashMap<>();

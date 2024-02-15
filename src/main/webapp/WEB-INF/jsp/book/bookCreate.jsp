@@ -31,12 +31,12 @@
 				<input type="text" id="publisher" class="form-control" placeholder="출판사">
 				<div class="d-flex">
 					<input type="text" id="genre" class="form-control col-6" placeholder="장르"> 
-					<input type="text" id="page" class="form-control col-6" placeholder="페이지 수">
+					<input type="text" id="page" class="form-control col-6" placeholder="페이지 수 (숫자만 입력가능)">
 				</div>
 				<textarea id="content" class="form-control" placeholder="책 내용" rows="20"></textarea>
 	
 				<div class="d-flex justify-content-between mt-3">
-					<input type="file" id="file">
+					<input type="file" id="file" accept=".jpg, .png, .gif, .jpeg">
 					<div>
 						<button type="button" id="clearBtn" class="btn btn-secondary">모두 지우기</button>
 						<button type="button" id="saveBtn" class="btn btn-dark">등록</button>
@@ -66,6 +66,8 @@
 				let genre = $("#genre").val();
 				let page = $("#page").val().trim();
 				let content = $("#content").val();
+				let fileName = $("#file").val();
+				//alert(fileName); //C:\fakepath\book_1.jpg
 				
 				// validation check
 				if (!bookName) {
@@ -88,9 +90,29 @@
 					alert("페이지수를 입력해주세요");
 					return;
 				}
+				if (isNaN(page)) { // 숫자가 아닐 때 참
+					alert("페이지수는 숫자만 입력가능합니다.");
+					return;
+				}
 				if (!content) {
 					alert("책 내용을 입력해주세요");
 					return;
+				}
+				// 파일 역시 필수값이다.
+				if (!fileName) {
+					alert("책 표지를 등록해주세요");
+					return;
+				}
+				// 확장자만 뽑은 후 소문자로 변경해서 검사한다.
+				if (fileName) {
+					let extension = fileName.split(".").pop().toLowerCase();
+					//alert(extension);
+				
+					if ($.inArray(extension, ['jpg', 'png', 'gif', 'jpeg']) == -1) {
+						alert("이미지 파일만 업로드 할 수 있습니다.");
+						$("#file").val(""); // 파일을 비운다.
+						return;
+					}
 				}
 				
 				// form 태그를 js를 만든다.
@@ -102,6 +124,7 @@
 				formData.append("genre", genre);
 				formData.append("page", page);
 				formData.append("content", content);
+				formData.append("file", $("#file")[0].files[0]);
 				
 				// AJAX
 				$.ajax({
