@@ -18,5 +18,8 @@ public class ReviewBO {
 		return reviewMapper.selectReviewList();
 	}
 	
-	//input:bookId, subject, content 	output: 
+	//input:bookId, subject, content 	output: x
+	public void addReview(int userId, int bookId, String subject, String content) {
+		reviewMapper.insertReview(userId, bookId, subject, content);
+	}
 }

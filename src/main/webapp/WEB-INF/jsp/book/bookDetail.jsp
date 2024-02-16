@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		
-		<button type="submit" class="btn btn-dark w-100 mt-3">전자책 보기</button>
-		<a href="/review/review-list-view" class="btn btn-secondary w-100 mt-2">리뷰 보러가기</a>
+		<a href="/book/book-content-view" class="readBtn btn btn-dark w-100 mt-3">전자책 보기</a>
+		<a href="/review/review-list-view" class="readReview btn btn-secondary w-100 mt-2">리뷰 보러가기</a>
 	</div>
 </div>

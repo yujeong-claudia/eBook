@@ -12,7 +12,14 @@ public class BookController {
 	@GetMapping("/book-detail-view")
 	public String bookDetailView(Model model) {
 		
-		model.addAttribute("viewName", "/book/bookDetail");
+		model.addAttribute("viewName", "book/bookDetail");
+		return "template/layout";
+	}
+	
+	@GetMapping("/book-content-view")
+	public String bookContentView(Model model) {
+		
+		model.addAttribute("viewName", "book/bookContent");
 		return "template/layout";
 	}
 }
