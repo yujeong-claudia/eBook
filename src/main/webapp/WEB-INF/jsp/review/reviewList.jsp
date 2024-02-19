@@ -8,16 +8,14 @@
 			<thead>
 				<tr>
 					<th>No.</th>
-					<th>이름</th>
 					<th>제목</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${reviewList}" var="review">
 				<tr>
-					<td>${review.id}</td>
-					<td><a href="/review/review-create-view?reviewId=${review.id}">${review.subject}</a></td>
-					<td><a href="/review/review-create-view?reviewId=${review.id}">${review.content}</a></td>
+					<td>${review.bookId}</td>
+					<td>${review.subject}</td>
 				</tr>
 				</c:forEach>
 			</tbody>

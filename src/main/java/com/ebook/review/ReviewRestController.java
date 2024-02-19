@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ebook.review.bo.ReviewBO;
 
+import jakarta.servlet.http.HttpSession;
+
 @RequestMapping("/review")
 @RestController
 public class ReviewRestController {
@@ -19,15 +21,18 @@ public class ReviewRestController {
 	private ReviewBO reviewBO;
 	
 	// 리뷰 저장
-	@PostMapping("/review-create-view")
-	public Map<String, Object> reviewCreate(
-			@RequestParam("userId") int userId,
-			@RequestParam("bookId") int bookId,
+	@PostMapping("/create")
+	public Map<String, Object> create(
+			@RequestParam("bookId") String bookId,
 			@RequestParam("subject") String subject,
-			@RequestParam("content") String content) {
+			@RequestParam("content") String content,
+			HttpSession session) {
+		
+		// 글쓴이 번호 - session에 있는 userId를 보낸다
+		int userId = (int)session.getAttribute("userId");
 		
 		// db insert
-		reviewBO.addReview(userId, bookId, subject, content);
+		//reviewBO.addReview(userId, bookId, subject, content);
 		
 		// 응답값
 		Map<String, Object> result = new HashMap<>();

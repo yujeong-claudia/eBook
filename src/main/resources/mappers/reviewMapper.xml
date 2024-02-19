@@ -3,7 +3,7 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
   <mapper namespace="com.ebook.review.mapper.ReviewMapper">
- 	<select id="selectReviewList" resultType="com.ebook.review.domain.Review">
+ 	<select id="selectReviewListByBookId" parameterType="int" resultType="com.ebook.review.domain.Review">
  	SELECT
 			`id`
 			,`userId`
@@ -14,26 +14,10 @@
 			,`updatedAt`
 	FROM
 			`review`
+	WHERE
+			`bookId`
+	ORDER BY `id` DESC				
  	</select>
  	
- 	<insert id="insertReview" parameterType="map">
- 		INSERT INTO `review`
- 		(
-			`userId`
-			,`bookId`
-			,`subject`
-			,`content`
-			,`createdAt`
-			,`updatedAt`
- 		)
- 		VALUES
- 		(
- 			#{userId}
- 			,#{bookId}
- 			,#{subject}
- 			,#{content}
- 			,NOW()
- 			,NOW()
- 		)	
- 	</insert>
+ 	
  </mapper>

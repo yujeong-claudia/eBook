@@ -22,7 +22,7 @@ public class ReviewController {
 	
 	// 리뷰목록
 	@GetMapping("/review-list-view")
-	public String reviewListView(Model model, HttpSession session) {
+	public String reviewListView(int bookId, Model model, HttpSession session) {
 		
 		
 		// 로그인 여부 조회
@@ -33,7 +33,7 @@ public class ReviewController {
 		}
 		
 		// db - 리뷰 목록 조회하기
-		List<Review> reviewList = reviewBO.getReviewList();
+		List<Review> reviewList = reviewBO.getReviewListByBookId(bookId);
 		model.addAttribute("reviewList", reviewList);
 		model.addAttribute("viewName", "review/reviewList");
 		return "template/layout";

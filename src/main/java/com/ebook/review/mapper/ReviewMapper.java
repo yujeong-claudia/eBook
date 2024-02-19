@@ -9,7 +9,7 @@ import com.ebook.review.domain.Review;
 
 @Mapper
 public interface ReviewMapper {
-	public List<Review> selectReviewList();
+	public List<Review> selectReviewListByBookId(int bookId);
 	
 	public void insertReview(
 			@Param("userId") int userId, 

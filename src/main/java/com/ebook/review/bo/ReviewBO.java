@@ -13,9 +13,9 @@ public class ReviewBO {
 	
 	@Autowired
 	private ReviewMapper reviewMapper;
-	
-	public List<Review> getReviewList(){
-		return reviewMapper.selectReviewList();
+
+	public List<Review> getReviewListByBookId(int bookId){
+		return reviewMapper.selectReviewListByBookId(bookId);
 	}
 	
 	//input:bookId, subject, content 	output: x
