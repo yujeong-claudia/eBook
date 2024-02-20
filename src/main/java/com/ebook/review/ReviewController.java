@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ebook.review.bo.ReviewBO;
 import com.ebook.review.domain.Review;
@@ -22,7 +23,10 @@ public class ReviewController {
 	
 	// 리뷰목록
 	@GetMapping("/review-list-view")
-	public String reviewListView(int bookId, Model model, HttpSession session) {
+	public String reviewListView(
+			@RequestParam("bookId") int bookId, 
+			Model model, 
+			HttpSession session) {
 		
 		
 		// 로그인 여부 조회

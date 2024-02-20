@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="d-flex justify-content-center">
 	<!-- 검색 영역 -->
 	<div class="col-5">
@@ -14,20 +15,16 @@
 		</div>
 		<div class="d-flex justify-content-between">
 			<!-- 왼쪽 -->
-			<div>
-				<div class="my-2"><a href="#"><b>1 </b>살인자의 쇼핑몰</a></div>
-				<div class="my-2"><a href="#"><b>2 </b>나는 메트로폴리탄 미술관의 경비원입니다</a></div>
-				<div class="my-2"><a href="#"><b>3 </b>처음부터 시작하는 주식투자 단타전략</a></div>
-				<div class="my-2"><a href="#"><b>4 </b>도둑맞은 집중력</a></div>
-				<div class="my-2"><a href="#"><b>5 </b>살인자의 쇼핑몰2</a></div>
+			<div>			
+			<c:forEach items="${bookList}" var="book" begin="0" end="4">
+				<div class="my-2"><a href="/book/book-detail-view?bookName=${book.bookName}"><b>${book.id} </b>${book.bookName}</a></div>
+			</c:forEach>
 			</div>
 			<!-- 오른쪽 -->
 			<div>
-				<div class="my-2"><a href="#"><b>6 </b>아주 희미한 빛으로도</a></div>
-				<div class="my-2"><a href="#"><b>7 </b>마흔에 읽는 쇼펜하우어</a></div>
-				<div class="my-2"><a href="#"><b>8 </b>유목민의 투자의 정석</a></div>
-				<div class="my-2"><a href="#"><b>9 </b>고구려7</a></div>
-				<div class="my-2"><a href="#"><b>10 </b>인생은 순간이다</a></div>
+			<c:forEach items="${bookList}" var="book" begin="5" end="10">
+				<div class="my-2"><a href="/book/book-detail-view?bookName=${book.bookName}"><b>${book.id} </b>${book.bookName}</a></div>
+			</c:forEach>
 			</div>
 		</div>
 		<!-- 배너 -->

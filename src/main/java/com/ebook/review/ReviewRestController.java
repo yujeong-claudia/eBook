@@ -23,13 +23,13 @@ public class ReviewRestController {
 	// 리뷰 저장
 	@PostMapping("/create")
 	public Map<String, Object> create(
-			@RequestParam("bookId") String bookId,
+			@RequestParam(value="bookId", required=true) int bookId,
 			@RequestParam("subject") String subject,
 			@RequestParam("content") String content,
 			HttpSession session) {
 		
 		// 글쓴이 번호 - session에 있는 userId를 보낸다
-		int userId = (int)session.getAttribute("userId");
+		//int userId = (int)session.getAttribute("userId"); => null이라서 500에러 발생
 		
 		// db insert
 		//reviewBO.addReview(userId, bookId, subject, content);
