@@ -8,5 +8,12 @@ header{height: 100px; background-color: #66ff38}
 .book-detail-box {width:600px;}
 .book-content-box{width:600px;}
 .title{font-size:30px}
+.block {
+    border-style: solid;
+    border-width: 3px;
+    border-color: green;
+    border-radius: 10px;
+    padding: 30px 30px;
+}
 
 a, a:hover {color:#000;}
