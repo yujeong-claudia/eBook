@@ -11,4 +11,6 @@ public interface BookMapper {
 	public List<Book> selectBookList();
 
 	public List<Book> selectBookListByBookName(String bookName);
+	
+	public Book selectBookById(int id);
 }

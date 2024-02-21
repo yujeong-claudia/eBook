@@ -36,4 +36,22 @@
 			`bookName` = #{bookName}
 		ORDER BY `id` DESC		
 	</select>
+	
+	<select id="selectBookById" parameterType="int" resultType="com.ebook.book.domain.Book">
+		SELECT
+			`id`
+			,`bookCoverPath`
+			,`bookName`
+			,`author`
+			,`genre`
+			,`page`
+			,`publisher`
+			,`content`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`book`
+		WHERE
+			`id` = #{id}
+	</select>
 </mapper>

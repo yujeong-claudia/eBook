@@ -21,4 +21,8 @@ public class BookBO { //getReviewListByBookId
 	public List<Book> getBookListByBookName(String bookName) {
 		return bookMapper.selectBookListByBookName(bookName);
 	}
+	
+	public Book getBookById(int id) {
+		return bookMapper.selectBookById(id);
+	}
 }
