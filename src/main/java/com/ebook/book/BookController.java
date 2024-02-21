@@ -33,11 +33,14 @@ public class BookController {
 	}
 	
 	@GetMapping("/book-content-view")
-	public String bookContentView(Model model) {
+	public String bookContentView(
+			@RequestParam("bookName") String bookName,
+			Model model) {
 		
 		// db - select
-		//List<Book> bookList = bookBO.getBookListByBookName(bookName);
-				
+		List<Book> bookList = bookBO.getBookListByBookName(bookName);
+		
+		model.addAttribute("bookList", bookList);
 		model.addAttribute("viewName", "book/bookContent");
 		return "template/layout";
 	}

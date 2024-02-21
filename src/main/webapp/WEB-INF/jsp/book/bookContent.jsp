@@ -4,10 +4,10 @@
 <div class="d-flex justify-content-center">
 	<div class="book-content-box mt-5">
 		<c:forEach items="${bookList}" var="book">
-		<div>${book.content}</div>
+			${book.content}
 		</c:forEach>
 		<div class="d-flex justify-content-between mt-3">
-			<a href="/book/book-detail-view" class="btn btn-dark">뒤로 가기</a>
+			<a href="/book/book-detail-view?bookName=${book.bookName}" class="btn btn-dark">뒤로 가기</a>
 			<a href="/review/review-list-view" class="btn btn-dark">리뷰</a>
 		</div>
 	</div>	
