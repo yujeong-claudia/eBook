@@ -7,6 +7,8 @@ header{height: 100px; background-color: #66ff38}
 .sign-in-box {width:400px;}
 .book-detail-box {width:600px;}
 .book-content-box{width:700px;}
+.review-create-box {width:600px;}
+.review-list-box {width:600px;}
 .title{font-size:30px}
 .block {
     border-style: solid;
@@ -14,6 +16,16 @@ header{height: 100px; background-color: #66ff38}
     border-color: green;
     border-radius: 10px;
     padding: 30px 30px;
+}
+.spoiler-checkbox {
+	font-size: 20px;
+	font-weight: bold;
+	color: #2F4F4F;
+}
+	
+input[type="checkbox"] {
+  width: 20px; 
+  height: 20px;
 }
 
 a, a:hover {color:#000;}

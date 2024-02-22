@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ebook.book.bo.BookBO;
 import com.ebook.book.domain.Book;
+import com.ebook.review.domain.Review;
 
 @RequestMapping("/book")
 @Controller

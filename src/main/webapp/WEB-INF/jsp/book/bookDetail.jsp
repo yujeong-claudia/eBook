@@ -3,16 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <div class="d-flex justify-content-center">    
 	<div class="book-detail-box mt-5">
+		<c:forEach items="${bookList}" var="book">
 		<div class="d-flex border border-success">
 			<%-- 책 표지 --%>
-			<c:forEach items="${bookList}" var="book">
 			<div class="mr-3 mt-3 mb-3 ml-3">
 				<img src="${book.bookCoverPath}">
 			</div>
-			</c:forEach>
 			
 			<%-- 세부 내용 --%>
-			<c:forEach items="${bookList}" var="book">
 			<div class="mt-3">
 				<div class="d-flex justify-content-center">
 					<div class="title font-weight-bold mr-3">${book.bookName}</div>
@@ -32,14 +30,12 @@
 					</div>
 				</div>
 			</div>
-			</c:forEach>
 		</div>
-		<c:forEach items="${bookList}" var="book">
 		<div>
 			<a href="/book/book-content-view?id=${book.id}" class="readBtn btn btn-dark w-100 mt-3">전자책 보기</a>
 		</div>
+		<a href="/review/review-list-view?bookId=${book.id}" class="readReview btn btn-secondary w-100 mt-2">리뷰 보러가기</a>
 		</c:forEach>
-		<a href="/review/review-list-view?bookId=${review.bookId}" class="readReview btn btn-secondary w-100 mt-2">리뷰 보러가기</a>
 	</div>
 </div>
 <script>
@@ -50,6 +46,4 @@
 			alert("좋아요");
 		}
 	}
-
-
 </script>

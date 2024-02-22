@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="d-flex justify-content-center">
-	<div class="w-50">
+	<div class="review-list-box">
 		<h1>리뷰 목록</h1>
 		<table class="table text-center mt-3">
 			<thead>
@@ -12,12 +12,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${reviewList}" var="review">
 				<tr>
-					<td>${review.bookId}</td>
-					<td>${review.subject}</td>
-				</tr>
+				<c:forEach items="${reviewList}" var="review">
+					<td><a href="${review.id}">${review.id}</a></td>
+					<td><a href="${review.subject}">${review.subject}</a></td>
 				</c:forEach>
+				</tr>
 			</tbody>
 		</table>
 		<div class="d-flex justify-content-between mt-5">

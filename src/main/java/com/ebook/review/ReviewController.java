@@ -45,8 +45,15 @@ public class ReviewController {
 	
 	// 리뷰 쓰기
 	@GetMapping("/review-create-view")
-	public String reviewCreateView(Model model) {
-		// review 권한 검사 한번에 할 예정
+	public String reviewCreateView(Model model, HttpSession session) {
+		
+		// 로그인 여부 조회
+		Integer userId = (Integer)session.getAttribute("userId");
+		if (userId == null) {
+			// 비로그인이면 로그인 페이지로 이동
+			return "redirect:/user/sign-in-view";
+		}
+		
 		model.addAttribute("viewName", "review/reviewCreate");
 		return "template/layout";
 	}
