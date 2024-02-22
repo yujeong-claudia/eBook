@@ -32,11 +32,13 @@
 					</div>
 				</div>
 			</div>
-			<div>
-				<a href="/book/book-content-view?id=${book.id}" class="readBtn btn btn-dark w-100 mt-3">전자책 보기</a>
-			</div>
 			</c:forEach>
 		</div>
+		<c:forEach items="${bookList}" var="book">
+		<div>
+			<a href="/book/book-content-view?id=${book.id}" class="readBtn btn btn-dark w-100 mt-3">전자책 보기</a>
+		</div>
+		</c:forEach>
 		<a href="/review/review-list-view?bookId=${review.bookId}" class="readReview btn btn-secondary w-100 mt-2">리뷰 보러가기</a>
 	</div>
 </div>
