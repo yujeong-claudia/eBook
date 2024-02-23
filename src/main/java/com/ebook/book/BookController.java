@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ebook.book.bo.BookBO;
 import com.ebook.book.domain.Book;
-import com.ebook.review.domain.Review;
+
+import jakarta.servlet.http.HttpSession;
 
 @RequestMapping("/book")
 @Controller
@@ -35,13 +36,21 @@ public class BookController {
 	
 	@GetMapping("/book-content-view")
 	public String bookContentView(
-			@RequestParam(value = "id", required = true)int id,
-			Model model) {
+			@RequestParam("bookId") int bookId,
+			Model model,
+			HttpSession session) {
 		
+		// 로그인 여부 조회
+		Integer userId = (Integer)session.getAttribute("userId");
+		if (userId == null) {
+			// 비로그인이면 로그인 페이지로 이동
+			return "redirect:/user/sign-in-view";
+		}
+	
 		// db - select
-		Book bookContent = bookBO.getBookById(id);
+		Book book = bookBO.getBookById(bookId);
 		
-		model.addAttribute("bookContent", bookContent);
+		model.addAttribute("book", book);
 		model.addAttribute("viewName", "book/bookContent");
 		return "template/layout";
 	}
