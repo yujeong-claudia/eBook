@@ -28,7 +28,7 @@
 		// 뒤로가기 버튼을 클릭 했을 때 => 리뷰 목록 페이지로 이동
 		$("#reviewListBtn").on('click', function() {
 			//alert("뒤로 가기");
-			location.href = "/review/review-list-view?bookId"+ bookId;
+			location.href = "/review/review-list-view?bookId=${bookId}"
 		});
 		// 모두 지우기 버튼을 클릭 했을 때
 		$("#clearBtn").on('click', function(){
@@ -62,7 +62,7 @@
 				, success:function(data){
 					if(data.code == 200) {
 						alert("리뷰가 등록되었습니다.");
-						location.href="/review/review-list-view?bookId="+ bookId;
+						location.href="/review/review-list-view?bookId=${book}"
 					} else {
 						alert(data.error_message);
 					}

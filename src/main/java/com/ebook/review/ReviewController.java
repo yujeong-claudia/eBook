@@ -55,7 +55,7 @@ public class ReviewController {
 	// 리뷰 상세
 	@GetMapping("/review-detail-view")
 	public String reviewDetailView(
-			//@RequestParam("bookId") int bookId, 
+			@RequestParam("bookId") int bookId, 
 			Model model, 
 			HttpSession session) {
 		
@@ -72,7 +72,9 @@ public class ReviewController {
 	
 	// 리뷰 쓰기
 	@GetMapping("/review-create-view")
-	public String reviewCreateView(Model model, HttpSession session) {
+	public String reviewCreateView(
+			@RequestParam("bookId") int bookId,
+			Model model, HttpSession session) {
 		
 		// 로그인 여부 조회
 		Integer userId = (Integer)session.getAttribute("userId");
@@ -81,6 +83,8 @@ public class ReviewController {
 			return "redirect:/user/sign-in-view";
 		}
 		
+		
+		model.addAttribute("bookId", bookId);
 		model.addAttribute("viewName", "review/reviewCreate");
 		return "template/layout";
 	}
