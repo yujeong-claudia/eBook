@@ -16,4 +16,7 @@ public interface ReviewMapper {
 			@Param("bookId") int bookId, 
 			@Param("subject") String subject, 
 			@Param("content") String content);
+	
+	public Review getReviewByReviewId(
+			@Param("reviewId") int reviewId);
 }

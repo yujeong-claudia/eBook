@@ -63,7 +63,7 @@
 				, success:function(data){
 					if(data.code == 200) {
 						alert("리뷰가 등록되었습니다.");
-						location.href="/review/review-list-view?bookId=${bookId}"
+						location.href="/review/review-list-view?bookId=" + bookId
 					} else {
 						alert(data.error_message);
 					}

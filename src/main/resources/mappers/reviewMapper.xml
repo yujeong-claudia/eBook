@@ -39,5 +39,20 @@
 			, NOW()
 		)
 	</insert>
+	
+	<select id="getReviewByReviewId" parameterType="int" resultType="com.ebook.review.domain.Review">
+		SELECT
+			`id`
+			,`userId`
+			,`bookId`
+			,`subject`
+			,`content`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`review`
+		WHERE
+			`id` = #{reviewId}
+	</select>
  	
  </mapper>

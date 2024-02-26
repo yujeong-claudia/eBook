@@ -14,8 +14,8 @@
 			<tbody>
 				<c:forEach items="${reviewList}" var="review">
 				<tr>
-					<td><a href="${review.id}">${review.id}</a></td>
-					<td><a href="${review.subject}">${review.subject}</a></td>
+					<td><a href="/review/review-detail-view?reviewId=${review.id}">${review.id}</a></td>
+					<td><a href="/review/review-detail-view?reviewId=${review.id}">${review.subject}</a></td>
 				</tr>
 				</c:forEach>
 			</tbody>

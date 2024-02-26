@@ -22,4 +22,8 @@ public class ReviewBO {
 	public void addReview(int userId, int bookId, String subject, String content) {
 		reviewMapper.insertReview(userId, bookId, subject, content);
 	}
+	
+	public Review getReviewByReviewId(int reviewId) {
+		return reviewMapper.getReviewByReviewId(reviewId);
+	}
 }
