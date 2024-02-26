@@ -10,7 +10,7 @@
 		<div class="d-flex justify-content-between mt-4">
 			<button type="button" id="reviewListBtn" class="form-control col-2 btn-dark">뒤로가기</button>		
 			<button type="button" id="clearBtn"  class="form-control col-3 btn-secondary">모두지우기</button>		
-			<button type="button" id="saveBtn"  class="form-control col-2 btn-dark mb-5">등록하기</button>		
+			<button type="button" id="saveBtn"  class="form-control col-2 btn-dark mb-5" data-book-id="${bookId}">등록하기</button>		
 		</div>
 		
 		<div class="spoiler-checkbox">
@@ -39,6 +39,7 @@
 		// 등록하기 버튼을 클릭 했을 때
 		$("#saveBtn").on('click', function(){
 			//alert("등록하기");
+			let bookId =  $(this).data("book-id");
 			let subject = $("#subject").val().trim();
 			let content = $("#content").val();
 			
@@ -62,7 +63,7 @@
 				, success:function(data){
 					if(data.code == 200) {
 						alert("리뷰가 등록되었습니다.");
-						location.href="/review/review-list-view?bookId=${book}"
+						location.href="/review/review-list-view?bookId=${bookId}"
 					} else {
 						alert(data.error_message);
 					}

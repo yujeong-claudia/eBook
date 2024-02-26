@@ -19,5 +19,25 @@
 	ORDER BY `id` DESC				
  	</select>
  	
+ 	<insert id="insertReview" parameterType="map">
+		INSERT INTO `review`
+		(
+			`userId`
+			,`bookId`
+			,`subject`
+			,`content`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{userId}
+			, #{bookId}
+			, #{subject}
+			, #{content}
+			, NOW()
+			, NOW()
+		)
+	</insert>
  	
  </mapper>

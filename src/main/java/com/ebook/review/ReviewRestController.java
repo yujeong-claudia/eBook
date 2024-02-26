@@ -32,7 +32,7 @@ public class ReviewRestController {
 		int userId = (int)session.getAttribute("userId"); 
 		
 		// db insert
-		//reviewBO.addReview(userId, bookId, subject, content);
+		reviewBO.addReview(userId, bookId, subject, content);
 		
 		// 응답값
 		Map<String, Object> result = new HashMap<>();
