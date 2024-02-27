@@ -9,6 +9,7 @@ import com.ebook.review.domain.Review;
 
 @Mapper
 public interface ReviewMapper {
+	
 	public List<Review> selectReviewListByBookId(int bookId);
 	
 	public void insertReview(
@@ -17,6 +18,13 @@ public interface ReviewMapper {
 			@Param("subject") String subject, 
 			@Param("content") String content);
 	
-	public Review getReviewByReviewId(
+	public Review selectReviewByReviewId(
 			@Param("reviewId") int reviewId);
+	
+	public void updateReviewByReviewId(
+			@Param("reviewId") int reviewId, 
+			@Param("subject") String subject, 
+			@Param("content") String content);
+	
+	public void deleteReviewByReviewId(@Param("reviewId") int reviewId);
 }

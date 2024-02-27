@@ -40,7 +40,7 @@
 		)
 	</insert>
 	
-	<select id="getReviewByReviewId" parameterType="int" resultType="com.ebook.review.domain.Review">
+	<select id="selectReviewByReviewId" parameterType="int" resultType="com.ebook.review.domain.Review">
 		SELECT
 			`id`
 			,`userId`
@@ -54,5 +54,22 @@
 		WHERE
 			`id` = #{reviewId}
 	</select>
- 	
+	
+	<update id="updateReviewByReviewId" parameterType="map">
+		UPDATE `review`
+		SET
+			`subject` = #{subject}
+			, `content` = #{content}
+			, `updatedAt` = NOW()
+		WHERE
+			`id` = #{reviewId}
+	</update> 
+	
+	<delete id="deleteReviewByReviewId" parameterType="int">
+		DELETE
+		FROM
+			`review`
+		WHERE	
+			`id` = #{reviewId}
+	</delete>	
  </mapper>

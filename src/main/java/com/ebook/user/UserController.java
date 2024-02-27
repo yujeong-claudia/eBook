@@ -36,7 +36,11 @@ public class UserController {
 		return "template/layout";
 	}
 	
-	// 로그아웃
+	/**
+	 * 로그아웃 화면
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("/sign-out")
 	public String signOut(HttpSession session) {
 		// 세션에 있는 내용을 모두 비운다.

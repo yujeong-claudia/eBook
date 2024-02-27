@@ -13,17 +13,13 @@
 			<c:if test="${not empty reviewList}">
 			<thead>
 				<tr>
-					<th>No.</th>
-					<th>제목</th>
+					<th>리뷰 목록</th>
 				</tr>
 			</thead>
 			<tbody>
 					<c:forEach items="${reviewList}" var="review">
 						<tr>
-							<td><a
-								href="/review/review-detail-view?reviewId=${review.id}">${review.id}</a></td>
-							<td><a
-								href="/review/review-detail-view?reviewId=${review.id}">${review.subject}</a></td>
+							<td><a href="/review/review-detail-view?reviewId=${review.id}">${review.subject}</a></td>
 						</tr>
 					</c:forEach>
 			</tbody>

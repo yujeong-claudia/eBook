@@ -21,6 +21,12 @@ public class BookController {
 	@Autowired
 	private BookBO bookBO;
 	
+	/**
+	 * 책 상세 화면
+	 * @param bookName
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/book-detail-view")
 	public String bookDetailView(
 			@RequestParam("bookName") String bookName,
@@ -34,6 +40,13 @@ public class BookController {
 		return "template/layout";
 	}
 	
+	/**
+	 * 책 내용 화면
+	 * @param bookId
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/book-content-view")
 	public String bookContentView(
 			@RequestParam("bookId") int bookId,

@@ -26,7 +26,13 @@ public class ReviewController {
 	@Autowired
 	private BookBO bookBO;
 	
-	// 리뷰목록
+	/** 
+	 * 리뷰목록 화면
+	 * @param bookId
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/review-list-view")
 	public String reviewListView(
 			@RequestParam("bookId") int bookId, 
@@ -52,7 +58,13 @@ public class ReviewController {
 		return "template/layout";
 	}
 	
-	// 리뷰 상세
+	/**
+	 * 리뷰상세 화면
+	 * @param reviewId
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/review-detail-view")
 	public String reviewDetailView(
 			@RequestParam("reviewId") int reviewId, 
@@ -74,7 +86,13 @@ public class ReviewController {
 		return "template/layout";
 	}
 	
-	// 리뷰 쓰기
+	/**
+	 * 리뷰작성 화면
+	 * @param bookId
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/review-create-view")
 	public String reviewCreateView(
 			@RequestParam("bookId") int bookId,

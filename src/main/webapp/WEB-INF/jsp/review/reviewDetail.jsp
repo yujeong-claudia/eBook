@@ -10,11 +10,13 @@
 		<div class="d-flex justify-content-between mt-4">
 			<button type="button" id="reviewListBtn" class="form-control col-2 btn-dark">뒤로가기</button>		
 			
-			<%-- 로그인 된 사람과 글쓴이 정보가 일치할 때 노출 --%>
-			<c:if test="${userId eq review.userId}">
-			<button type="button" id="saveBtn" class="btn btn-secondary" data-review-id="${review.id}">수정</button>
-			<button type="button" id="deleteBtn" class="btn btn-dark" data-review-id="${review.id}">삭제</button>
-			</c:if>
+			<div class="d-flex">
+				<%-- 로그인 된 사람과 글쓴이 정보가 일치할 때 노출 --%>
+				<c:if test="${userId eq review.userId}">
+				<button type="button" id="saveBtn" class="btn btn-secondary mr-2" data-review-id="${review.id}">수정</button>
+				<button type="button" id="deleteBtn" class="btn btn-dark" data-review-id="${review.id}">삭제</button>
+				</c:if>
+			</div>
 		</div>
 	</div>
 </div>
@@ -63,7 +65,32 @@
 					alert("리뷰를 수정하는데 실패했습니다.")
 				}
 			});
+		});
+		
+		// 리뷰 삭제 버튼
+		$("#deleteBtn").on('click', function(){
+			//alert("리뷰삭제");
+			let reviewId = $(this).data("review-id");
 			
+			$.ajax({
+				//request
+				type:"DELETE"
+				, url:"/review/delete"
+				, data:{"reviewId":reviewId}
+			
+				//response - CALL BACK 함수
+				, success:function(data) {
+					if (data.code == 200) {
+						alert("리뷰가 삭제되었습니다.");
+						location.href="/review/review-list-view?bookId=${review.bookId}";
+					} else {
+						alert(data.error_message);
+					}
+				}
+				, error:function(request, status, error) {
+					alert("리뷰 삭제 하는데 실패했습니다.");
+				}				
+			});
 		});
 	});
 </script>

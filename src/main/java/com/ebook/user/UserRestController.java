@@ -48,6 +48,14 @@ public class UserRestController {
 		return result;
 	}
 	
+	/**
+	 * 회원가입 API
+	 * @param loginId
+	 * @param password
+	 * @param name
+	 * @param email
+	 * @return
+	 */
 	@PostMapping("/sign-up")
 	public Map<String, Object> signUp(
 			@RequestParam("loginId") String loginId,
@@ -76,7 +84,13 @@ public class UserRestController {
 		return result;
 	}
 	
-	// 로그인 api
+	/**
+	 * 로그인 API
+	 * @param loginId
+	 * @param password
+	 * @param request
+	 * @return
+	 */
 	@PostMapping("/sign-in")
 	public Map<String, Object> signIn(
 			@RequestParam("loginId") String loginId,

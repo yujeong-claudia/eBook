@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,19 +51,41 @@ public class ReviewRestController {
 		return result;
 	}
 	
-	// 리뷰수정
+	/**
+	 * 리뷰수정 API
+	 * @param reviewId
+	 * @param subject
+	 * @param content
+	 * @return
+	 */
 	@PutMapping("/update")
 	public Map<String, Object> update(
 			@RequestParam("reviewId") int reviewId,
 			@RequestParam("subject") String subject,
 			@RequestParam("content") String content) {
 		
-		//int userId = (int)session.getAttribute("userId");
-		
-		//db update
-		reviewBO.
+		// db update
+		reviewBO.updateReviewByReviewId(reviewId, subject, content);
 		
 		// 응답
+		Map<String, Object> result = new HashMap<>();
+		result.put("code", 200);
+		result.put("result", "성공");
+		return result;
+	}
+	
+	/**
+	 * 리뷰삭제 API
+	 * @param reviewId
+	 * @return
+	 */
+	@DeleteMapping("/delete")
+	public Map<String, Object> delete(@RequestParam("reviewId") int reviewId){
+		
+		// db delete
+		reviewBO.deleteReviewByReviewId(reviewId);
+		
+		// 응답값
 		Map<String, Object> result = new HashMap<>();
 		result.put("code", 200);
 		result.put("result", "성공");

@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AdminController {
 	
+	/**
+	 * 관리자 책 등록화면
+	 * @return
+	 */
 	@GetMapping("/admin-create-view")
 	public String adminCreateView() {
 		return "book/bookCreate";

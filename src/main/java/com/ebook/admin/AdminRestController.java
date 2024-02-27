@@ -21,6 +21,17 @@ public class AdminRestController {
 	@Autowired
 	private AdminBO adminBO;
 	
+	/**
+	 * 관리자 책 등록 API
+	 * @param bookName
+	 * @param author
+	 * @param genre
+	 * @param page
+	 * @param publisher
+	 * @param content
+	 * @param file
+	 * @return
+	 */
 	@PostMapping("/create")
 	public Map<String, Object> create(
 			@RequestParam("bookName") String bookName,

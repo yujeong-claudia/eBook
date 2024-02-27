@@ -16,6 +16,11 @@ public class BookSearchController {
 	@Autowired
 	private BookBO bookBO;
 	
+	/**
+	 * 책 검색 화면
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/bookSearch/bookSearch-view")
 	public String bookSearchView(Model model) {
 		
