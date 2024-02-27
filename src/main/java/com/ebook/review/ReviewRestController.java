@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +21,14 @@ public class ReviewRestController {
 	@Autowired
 	private ReviewBO reviewBO;
 	
-	// 리뷰 저장
+	/**
+	 * 리뷰쓰기 API
+	 * @param bookId
+	 * @param subject
+	 * @param content
+	 * @param session
+	 * @return
+	 */
 	@PostMapping("/create")
 	public Map<String, Object> create(
 			@RequestParam("bookId") int bookId,
@@ -39,6 +47,25 @@ public class ReviewRestController {
 		result.put("code", 200);
 		result.put("result", "성공");
 		
+		return result;
+	}
+	
+	// 리뷰수정
+	@PutMapping("/update")
+	public Map<String, Object> update(
+			@RequestParam("reviewId") int reviewId,
+			@RequestParam("subject") String subject,
+			@RequestParam("content") String content,
+			HttpSession session) {
+		
+		int userId = (int)session.getAttribute("userId");
+		
+		//db update
+		
+		// 응답
+		Map<String, Object> result = new HashMap<>();
+		result.put("code", 200);
+		result.put("result", "성공");
 		return result;
 	}
 }

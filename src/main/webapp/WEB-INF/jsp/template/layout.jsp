@@ -21,7 +21,7 @@
 		<header>
 			<jsp:include page="../include/header.jsp" />
 		</header>
-		<section class="contents my-5">
+		<section class="contents mt-5">
 			<jsp:include page="../${viewName}.jsp" />
 		</section>
 	</div>

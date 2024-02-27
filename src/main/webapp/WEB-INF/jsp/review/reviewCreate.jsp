@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <div class="d-flex justify-content-center">
 	<div class="review-create-box">
-		<h1 class="mb-3">리뷰 작성</h1>
 		
 		<input type="text" id="subject" class="form-control" placeholder="제목을 입력하세요">
 		<textarea id="content" class="form-control" placeholder="불법적인 내용, 타인에게 불쾌감을 주는 논쟁을 유발하는 내용, 스포일러 등은 &#10;운영정책에 의해 사전고지 없이 처리될 수 있습니다." rows="10"></textarea>
