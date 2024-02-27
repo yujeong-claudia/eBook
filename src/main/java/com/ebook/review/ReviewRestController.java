@@ -55,12 +55,12 @@ public class ReviewRestController {
 	public Map<String, Object> update(
 			@RequestParam("reviewId") int reviewId,
 			@RequestParam("subject") String subject,
-			@RequestParam("content") String content,
-			HttpSession session) {
+			@RequestParam("content") String content) {
 		
-		int userId = (int)session.getAttribute("userId");
+		//int userId = (int)session.getAttribute("userId");
 		
 		//db update
+		reviewBO.
 		
 		// 응답
 		Map<String, Object> result = new HashMap<>();

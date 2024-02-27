@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="d-flex justify-content-center">
 	<div class="review-detail-box">
 		
@@ -10,10 +11,10 @@
 			<button type="button" id="reviewListBtn" class="form-control col-2 btn-dark">뒤로가기</button>		
 			
 			<%-- 로그인 된 사람과 글쓴이 정보가 일치할 때 노출 --%>
-			<%-- <c:if test="${userId eq review.userId}">--%>
+			<c:if test="${userId eq review.userId}">
 			<button type="button" id="saveBtn" class="btn btn-secondary" data-review-id="${review.id}">수정</button>
 			<button type="button" id="deleteBtn" class="btn btn-dark" data-review-id="${review.id}">삭제</button>
-			<%--</c:if>--%>
+			</c:if>
 		</div>
 	</div>
 </div>
@@ -45,7 +46,7 @@
 			
 			$.ajax({
 				//request
-				type:"PUT"
+				type:"put"
 				, url:"/review/update"
 				, data: {"reviewId":reviewId, "subject":subject, "content":content}
 				

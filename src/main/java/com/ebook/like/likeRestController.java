@@ -11,15 +11,15 @@ import jakarta.servlet.http.HttpSession;
 @RestController
 public class likeRestController {
 	
-	@RequestMapping("/like/{bookId}")
-	public Map<String, Object> likeToggle(
-			@PathVariable(name = "bookId") int bookId,
-			HttpSession session) {
-		
+//	@RequestMapping("/like/{bookId}")
+//	public Map<String, Object> likeToggle(
+//			@PathVariable(name = "bookId") int bookId,
+//			HttpSession session) {
+//		
 		// 로그인 여부 확인 
 		
 		// BO 호출 -> likeToggle
 		
 		// 응답값
-	}
+//	}
 }
