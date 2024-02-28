@@ -10,37 +10,39 @@
 			`like`
 	</select>
 	
-	<select id="selectLikeByBookNameUserId" resultType="map">
+	<select id="selectLikeByBookIdUserId" parameterType="map" resultType="int">
 		SELECT
 			*
 		FROM
 			`like`	
 		WHERE
-			`bookName` = #{bookName}
-			AND `userId` = #{userId}	
+			`bookId` = #{bookId}
+			<if test="userId != null">
+			AND `userId` = #{userId}
+			</if>	
 	</select>
 	
 	<insert id="insertLike" parameterType="map">
 		INSERT INTO `like`
 		(
-			`bookName`
+			`bookId`
 			, `userId`
 			, `createdAt`
 		)
 		VALUES
 		(
-			#{bookName}
+			#{bookId}
 			, #{userId}
 			, NOW()
 		)
 	</insert>
 	
-	<delete id="deleteLikeByBookNameUserId" parameterType="map">
+	<delete id="deleteLikeByBookIdUserId" parameterType="map">
 		DELETE
 		FROM
 			`like`
 		WHERE
-			`bookName` = #{bookName}
+			`bookId` = #{bookId}
 			AND `userId` = #{userId}
 	</delete>	
 </mapper>

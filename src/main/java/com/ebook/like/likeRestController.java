@@ -18,9 +18,9 @@ public class likeRestController {
 	@Autowired
 	private LikeBO likeBO;
 	
-	@RequestMapping("/like/{bookName}")
+	@RequestMapping("/like/{bookId}")
 	public Map<String, Object> likeToggle(
-			@PathVariable(name = "bookName") String bookName,
+			@PathVariable(name = "bookId") int bookId,
 			HttpSession session) {
 		
 		// 로그인 여부 확인 
@@ -34,8 +34,7 @@ public class likeRestController {
 		
 		// 여기까지 내려오면 로그인이 되어있다.
 		// BO 호출 -> likeToggle
-		likeBO.likeToggle(bookName, userId);
-		
+		likeBO.likeToggle(bookId, userId);
 		// 응답값
 		result.put("code", 200);
 		result.put("result", "성공");

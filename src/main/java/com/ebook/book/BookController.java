@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ebook.book.bo.BookBO;
 import com.ebook.book.domain.Book;
+import com.ebook.book.domain.BookView;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -21,21 +22,20 @@ public class BookController {
 	@Autowired
 	private BookBO bookBO;
 	
-	/**
-	 * 책 상세 화면
-	 * @param bookName
-	 * @param model
-	 * @return
-	 */
+	// 책 상세화면 - 수정중
 	@GetMapping("/book-detail-view")
 	public String bookDetailView(
 			@RequestParam("bookName") String bookName,
 			Model model) {
 		
+		//List<CardView> cardViewList = timelineBO.generateCardViewList(userId);
+		//List<BookView> bookViewList = 
+		
 		// db - select
 		List<Book> bookList = bookBO.getBookListByBookName(bookName);
 		
-		model.addAttribute("bookList", bookList);
+		
+		//model.addAttribute("bookList", bookList);
 		model.addAttribute("viewName", "book/bookDetail");
 		return "template/layout";
 	}

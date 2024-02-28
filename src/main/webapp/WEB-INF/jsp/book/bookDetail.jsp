@@ -15,12 +15,12 @@
 				<div class="d-flex justify-content-center">
 					<div class="title font-weight-bold mr-3">${book.bookName}</div>
 					<c:if test="${book.filledLike eq false}">
-					<a href="#" class="like-btn mt-2 mr-3" data-book-name="${book.bookName}">
+					<a href="#" class="like-btn mt-2 mr-3" data-book-id="${book.id}">
 						<img src="https://www.iconninja.com/files/214/518/441/heart-icon.png" width="30" height="30" alt="empty heart">
 					</a>
 					</c:if>
 					<c:if test="${book.filledLike eq true}">
-					<a href="#" class="like-btn mt-2 mr-3" data-book-name="${book.bookName}">
+					<a href="#" class="like-btn mt-2 mr-3" data-book-id="${book.id}">
 						<img src="https://www.iconninja.com/files/527/809/128/heart-icon.png" width="30" height="30" alt="filled heart">
 					</a>
 					</c:if>
@@ -52,11 +52,11 @@
 			e.preventDefault();
 			//alert("좋아요"); 
 			
-			let bookName = $(this).data("book-name");
-			//alert(bookName)
+			let bookId = $(this).data("book-id");
+			//alert(bookId)
 			
 			$.ajax({
-				url:"/like/" + bookName
+				url:"/like/" + bookId
 				, success:function(data) {
 					if (data.code == 200) {
 						// 성공

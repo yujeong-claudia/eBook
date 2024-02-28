@@ -12,15 +12,16 @@ public interface LikeMapper {
 	// input:X   output:List<Map>
 	public List<Map<String, Object>> selectLikeList();
 	
-	public void selectLikeByBookNameUserId(
-			@Param("bookName") String bookName, 
-			@Param("userId") int userId);
+	public int selectLikeCountByBookIdOrUserId(
+			@Param("bookId") int bookId, 
+			@Param("userId") Integer userId);
 	
-	public void deleteLikeByBookNameUserId(
-			@Param("bookName") String bookName, 
+	public void deleteLikeByBookIdUserId(
+			@Param("bookId") int bookId, 
 			@Param("userId") int userId);
 	
 	public void insertLike(
-			@Param("bookName") String bookName, 
+			@Param("bookId") int bookId, 
 			@Param("userId") int userId);
+
 }
