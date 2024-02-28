@@ -14,9 +14,16 @@
 			<div class="mt-3">
 				<div class="d-flex justify-content-center">
 					<div class="title font-weight-bold mr-3">${book.bookName}</div>
-					<a href="#" class="like-btn mt-2 mr-3">
+					<c:if test="${book.filledLike eq false}">
+					<a href="#" class="like-btn mt-2 mr-3" data-book-name="${book.bookName}">
 						<img src="https://www.iconninja.com/files/214/518/441/heart-icon.png" width="30" height="30" alt="empty heart">
 					</a>
+					</c:if>
+					<c:if test="${book.filledLike eq true}">
+					<a href="#" class="like-btn mt-2 mr-3" data-book-name="${book.bookName}">
+						<img src="https://www.iconninja.com/files/527/809/128/heart-icon.png" width="30" height="30" alt="filled heart">
+					</a>
+					</c:if>
 				</div>
 				<div class="font-weight-bold text-success mt-2">${book.author}</div>
 				<div class="d-flex mt-3 mb-3 text-secondary">
@@ -43,7 +50,27 @@
 		// 좋아요 토글
 		$(".like-btn").on('click', function(e) {
 			e.preventDefault();
-			alert("좋아요");
-		}
-	}
+			//alert("좋아요"); 
+			
+			let bookName = $(this).data("book-name");
+			//alert(bookName)
+			
+			$.ajax({
+				url:"/like/" + bookName
+				, success:function(data) {
+					if (data.code == 200) {
+						// 성공
+						location.reload(true); // 새로고침 => bookDetail화면
+					} else if (data.code == 300) {
+						// 비로그인 시 로그인 페이지로 이동
+						alert(data.error_message);
+						location.href = "/user/sign-in-view";
+					}
+				}
+				, error:function(request, status, error) {
+					alert("좋아요를 하는데 실패했습니다.");
+				}				
+			});
+		});
+	});
 </script>

@@ -18,4 +18,7 @@ public class Book {
 	private String content;
 	private Date createdAt;
 	private Date updatedAt;
+	
+	// 로그인 된 사람이 좋아요를 누른지 여부
+	private boolean filledLike;
 }
