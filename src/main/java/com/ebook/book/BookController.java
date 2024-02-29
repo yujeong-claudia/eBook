@@ -28,14 +28,14 @@ public class BookController {
 			@RequestParam("bookName") String bookName,
 			Model model) {
 		
-		//List<CardView> cardViewList = timelineBO.generateCardViewList(userId);
-		//List<BookView> bookViewList = 
+		// db - select
+		List<BookView> bookViewList = bookBO.getBookListByBookName(bookName);
 		
 		// db - select
-		List<Book> bookList = bookBO.getBookListByBookName(bookName);
+		//List<Book> bookList = bookBO.getBookListByBookName(bookName);
 		
 		
-		//model.addAttribute("bookList", bookList);
+		model.addAttribute("bookViewList", bookViewList);
 		model.addAttribute("viewName", "book/bookDetail");
 		return "template/layout";
 	}

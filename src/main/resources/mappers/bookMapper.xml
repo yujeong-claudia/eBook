@@ -15,10 +15,10 @@
 			,`createdAt`
 			,`updatedAt`
 		FROM
-			`book`	
+			`book`		
 	</select>
 	
-	<select id="selectBookListByBookName" parameterType="String" resultType="com.ebook.book.domain.Book">
+	<select id="selectBookListByBookName" parameterType="String" resultType="com.ebook.book.domain.BookView">
 		SELECT
 			`id`
 			,`bookCoverPath`

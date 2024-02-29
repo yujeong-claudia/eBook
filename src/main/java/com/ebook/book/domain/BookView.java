@@ -5,6 +5,8 @@ import com.ebook.user.entity.UserEntity;
 import lombok.Data;
 import lombok.ToString;
 
+//View용 객체
+//글 1개와 매핑됨
 @ToString
 @Data
 public class BookView {
