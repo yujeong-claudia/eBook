@@ -7,7 +7,7 @@
 		<div class="d-flex border border-success">
 			<%-- 책 표지 --%>
 			<div class="mr-3 mt-3 mb-3 ml-3">
-				<img src="${bookView.bookCoverPath}">
+				<img src="${bookView.book.bookCoverPath}">
 			</div>
 			
 			<%-- 세부 내용 --%>
@@ -15,13 +15,13 @@
 				<div class="d-flex justify-content-center">
 					<div class="title font-weight-bold mr-3">${bookView.book.bookName}</div>
 					<c:if test="${bookView.filledLike eq false}">
-					<a href="#" class="like-btn mt-2 mr-3" data-book-id="${bookView.book.id}">
-						<img src="https://www.iconninja.com/files/214/518/441/heart-icon.png" width="30" height="30" alt="empty heart">
+					<a href="#" class="like-btn mr-3" data-book-id="${bookView.book.id}">
+						<img src="/static/img/empty.png" width="50" height="45" alt="empty heart">
 					</a>
 					</c:if>
 					<c:if test="${bookView.filledLike eq true}">
-					<a href="#" class="like-btn mt-2 mr-3" data-book-id="${bookView.book.id}">
-						<img src="https://www.iconninja.com/files/527/809/128/heart-icon.png" width="30" height="30" alt="filled heart">
+					<a href="#" class="like-btn mr-3" data-book-id="${bookView.book.id}">
+						<img src="/static/img/filled.png" width="50" height="45" alt="filled heart">
 					</a>
 					</c:if>
 				</div>
@@ -60,6 +60,7 @@
 				, success:function(data) {
 					if (data.code == 200) {
 						// 성공
+						//alert("좋아요!")
 						location.reload(true); // 새로고침 => bookDetail화면
 					} else if (data.code == 300) {
 						// 비로그인 시 로그인 페이지로 이동

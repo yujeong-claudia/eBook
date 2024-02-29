@@ -1,7 +1,5 @@
 package com.ebook.book.domain;
 
-import com.ebook.user.entity.UserEntity;
-
 import lombok.Data;
 import lombok.ToString;
 
@@ -13,9 +11,6 @@ public class BookView {
 	
 	// 글 1개
 	private Book book;
-	
-	// 글쓴이 정보
-	private UserEntity user;
 	
 	// 좋아요 개수
 	private int likeCount;

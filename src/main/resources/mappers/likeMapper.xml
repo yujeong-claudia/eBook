@@ -3,23 +3,17 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="com.ebook.like.mapper.LikeMapper">
-	<select id="selectLikeList" resultType="map">
+	
+	<select id="selectLikeCountByBookIdOrUserId" parameterType="map" resultType="int">
 		SELECT
-			*
+			COUNT(1)
 		FROM
 			`like`
-	</select>
-	
-	<select id="selectLikeByBookIdUserId" parameterType="map" resultType="int">
-		SELECT
-			*
-		FROM
-			`like`	
 		WHERE
 			`bookId` = #{bookId}
 			<if test="userId != null">
 			AND `userId` = #{userId}
-			</if>	
+			</if>
 	</select>
 	
 	<insert id="insertLike" parameterType="map">
@@ -44,5 +38,13 @@
 		WHERE
 			`bookId` = #{bookId}
 			AND `userId` = #{userId}
-	</delete>	
+	</delete>
+	
+	<delete id="deleteLikeByBookId" parameterType="int">
+		DELETE
+		FROM
+			`like`
+		WHERE
+			`bookId` = #{bookId}
+	</delete>
 </mapper>

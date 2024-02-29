@@ -35,6 +35,7 @@ public class likeRestController {
 		// 여기까지 내려오면 로그인이 되어있다.
 		// BO 호출 -> likeToggle
 		likeBO.likeToggle(bookId, userId);
+		
 		// 응답값
 		result.put("code", 200);
 		result.put("result", "성공");

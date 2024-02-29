@@ -11,7 +11,7 @@ import com.ebook.book.domain.BookView;
 public interface BookMapper {
 	public List<Book> selectBookList();
 
-	public List<BookView> selectBookListByBookName(String bookName);
+	public List<Book> selectBookListByBookName(String bookName);
 	
 	public Book selectBookById(int id);
 }

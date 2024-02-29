@@ -13,16 +13,12 @@
 		</div>
 		
 		<div class="spoiler-checkbox">
-			<input type="checkbox" id="spoiler" name="spoiler" value="스포일러가 포함되어있을시 체크해주세요"> 스포일러가 포함되어있을시 체크해주세요
+			<label><input type="checkbox" id="spoiler" name="spoiler" value="스포일러가 포함되어있을시 체크해주세요"> 스포일러가 포함되어있을시 체크해주세요</label>
 		</div>
 	</div>
 </div>	
 <script>
 	$(document).ready(function() {
-		
-		// 체크박스
-		$("input:checkbox[id='spoiler']").prop("checked", true); // 체크박스 선택
-		$("input:checkbox[id='spoiler']").prop("checked", false); // 체크박스 해제
 		
 		// 뒤로가기 버튼을 클릭 했을 때 => 리뷰 목록 페이지로 이동
 		$("#reviewListBtn").on('click', function() {
@@ -47,11 +43,22 @@
 				alert("제목을 입력해주세요");
 				return;
 			}
+			
 			if (!content) {
 				alert("내용을 입력해주세요");
 				return;
+				
+			// 체크박스
+			$("#spoiler").on('click', function() { // 틀린문법, 이벤트가 또 잡히면 안된다.
+				$("#spoiler").prop("checked", true); // 체크박스 선택,틀린문법
+				$("#spoiler").prop("checked", false); // 체크박스 해제,틀린문법
+				
+					if (true){
+						subject = $("#subject").val("[스포일러]");
+					}
+				});
 			}
-			
+			//
 			$.ajax({
 				//request
 				type:"post"
