@@ -7,7 +7,8 @@
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="제목, 저자 검색">
 			<div class="input-group-append">
-				<button class="btn btn-light" type="button">검색</button>
+				<input  class="btn btn-light" type="button">검색</button>
+				<!-- <button class="btn btn-light" type="button">검색</button>-->
 			</div>
 		</div>
 		<div class="mt-5">
@@ -29,7 +30,7 @@
 		</div>
 		<!-- 배너 -->
 		<div class="d-flex justiyif-content-center mt-5">
-			<img id="img" src="/static/img/banner1.jpg" alt="banner1" class="w-100">
+			<a><img id="img" src="/static/img/banner1.jpg" alt="banner1" class="w-100"></a>
 		</div>
 	</div>
 </div>
@@ -38,6 +39,29 @@
 		
 		// 검색하기
 		
+		// 배너 클릭이벤트
+		$("#img").on('click', function() {
+			alert("배너 클릭시 이동")
+			
+			// src를 가져온다.
+			let img = document.getElementById("img").src;
+			
+			// `banner1.jpg`로 끝난다면 => 해당주소로 이동
+			if(img.endsWith('banner1.jpg')) {
+				location.href = "/book/book-detail-view?bookName=처음부터%20시작하는%20주식투자%20단타전략"
+			}
+			
+			// `banner2.jpg`로 끝난다면 => 해당주소로 이동
+			if(img.endsWith('banner2.jpg')) { 
+				location.href = "/book/book-detail-view?bookName=유목민의%20투자의%20정석"
+			}
+			
+			// `banner3.jpg`로 끝난다면 => 해당주소로 이동
+			if(img.endsWith('banner3.jpg')) { 
+				location.href = "/book/book-detail-view?bookName=인생은%20순간이다"
+			}
+			
+		});
 		
 		// 이미지 3초 간격으로 변하기
 		let bannerImg = ["/static/img/banner1.jpg", "/static/img/banner2.jpg", "/static/img/banner3.jpg"];

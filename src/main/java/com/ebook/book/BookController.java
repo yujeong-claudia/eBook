@@ -22,7 +22,13 @@ public class BookController {
 	@Autowired
 	private BookBO bookBO;
 	
-	// 책 상세화면
+	/**
+	 * 책 상세화면
+	 * @param bookName
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/book-detail-view")
 	public String bookDetailView(
 			@RequestParam("bookName") String bookName,
@@ -30,13 +36,6 @@ public class BookController {
 		
 		Integer userId = (Integer)session.getAttribute("userId");
 		List<BookView> bookViewList = bookBO.generateBookViewList(bookName, userId);
-		
-		// db - select
-		//List<BookView> bookViewList = bookBO.getBookListByBookName(bookName);
-		
-		// db - select
-		//List<Book> bookList = bookBO.getBookListByBookName(bookName);
-		
 		
 		model.addAttribute("bookViewList", bookViewList);
 		model.addAttribute("viewName", "book/bookDetail");

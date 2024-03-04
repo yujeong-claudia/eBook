@@ -95,12 +95,13 @@
 			if($("#spoiler").is(":checked") == true){
 			    console.log('체크된 상태');
 				  
-			    //const newData = spoiler ? Object.values(spoiler) : [];
-			    
-			    subject = $("#subject").val("[스포일러]");
+			    $("#subject").val("[스포일러]");
+			    subject = $("#subject").val();
 			}
 			
-	
+			console.log(bookId);
+			console.log(subject);
+			console.log(content);
 			$.ajax({
 				//request
 				type:"post"

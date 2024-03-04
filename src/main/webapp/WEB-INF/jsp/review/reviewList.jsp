@@ -19,7 +19,19 @@
 			<tbody>
 					<c:forEach items="${reviewList}" var="review">
 						<tr>
-							<td><a href="/review/review-detail-view?reviewId=${review.id}">${review.subject}</a></td>
+							<td>
+							<c:choose>
+								<%-- 제목이 스포일러라면 빨간색으로 처리한다 --%>
+								<c:when test="${review.subject eq '[스포일러]'}">
+									<a href="/review/review-detail-view?reviewId=${review.id}" class="text-danger font-weight-bold">${review.subject}</a>
+								</c:when>
+								<%-- 조건이 없다면 그냥 나오게 한다 --%>
+								<c:otherwise>
+									<a href="/review/review-detail-view?reviewId=${review.id}">${review.subject}</a>
+								</c:otherwise>
+								
+							</c:choose>
+							</td>
 						</tr>
 					</c:forEach>
 			</tbody>
