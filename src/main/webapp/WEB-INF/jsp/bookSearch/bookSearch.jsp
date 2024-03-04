@@ -35,6 +35,10 @@
 </div>
 <script> 
 	$(document).ready(function() {
+		
+		// 검색하기
+		
+		
 		// 이미지 3초 간격으로 변하기
 		let bannerImg = ["/static/img/banner1.jpg", "/static/img/banner2.jpg", "/static/img/banner3.jpg"];
         let currentIndex = 0;

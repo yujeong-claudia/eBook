@@ -1,22 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <div class="d-flex justify-content-center">
 	<div class="review-create-box">
-		
-		<input type="text" id="subject" class="form-control" placeholder="제목을 입력하세요">
-		<textarea id="content" class="form-control" placeholder="불법적인 내용, 타인에게 불쾌감을 주는 논쟁을 유발하는 내용, 스포일러 등은 &#10;운영정책에 의해 사전고지 없이 처리될 수 있습니다." rows="10"></textarea>
-	
+
+		<input type="text" id="subject" class="form-control"
+			placeholder="제목을 입력하세요">
+		<textarea id="content" class="form-control"
+			placeholder="불법적인 내용, 타인에게 불쾌감을 주는 논쟁을 유발하는 내용, 스포일러 등은 &#10;운영정책에 의해 사전고지 없이 처리될 수 있습니다."
+			rows="10"></textarea>
+
 		<div class="d-flex justify-content-between mt-4">
-			<button type="button" id="reviewListBtn" class="form-control col-2 btn-dark">뒤로가기</button>		
-			<button type="button" id="clearBtn"  class="form-control col-3 btn-secondary">모두지우기</button>		
-			<button type="button" id="saveBtn"  class="form-control col-2 btn-dark mb-5" data-book-id="${bookId}">등록하기</button>		
+			<button type="button" id="reviewListBtn"
+				class="form-control col-2 btn-dark">뒤로가기</button>
+			<button type="button" id="clearBtn"
+				class="form-control col-3 btn-secondary">모두지우기</button>
+			<button type="button" id="saveBtn"
+				class="form-control col-2 btn-dark mb-5" data-book-id="${bookId}">등록하기</button>
 		</div>
-		
+
 		<div class="spoiler-checkbox">
-			<label><input type="checkbox" id="spoiler" name="spoiler" value="스포일러가 포함되어있을시 체크해주세요"> 스포일러가 포함되어있을시 체크해주세요</label>
+			<label><input type="checkbox" id="spoiler" name="spoiler"
+				value="스포일러가 포함되어있을시 체크해주세요"> 스포일러가 포함되어있을시 체크해주세요</label>
 		</div>
 	</div>
-</div>	
+</div>
 <script>
 	$(document).ready(function() {
 		
@@ -47,18 +54,53 @@
 			if (!content) {
 				alert("내용을 입력해주세요");
 				return;
+			}
 				
 			// 체크박스
-			$("#spoiler").on('click', function() { // 틀린문법, 이벤트가 또 잡히면 안된다.
-				$("#spoiler").prop("checked", true); // 체크박스 선택,틀린문법
-				$("#spoiler").prop("checked", false); // 체크박스 해제,틀린문법
-				
-					if (true){
-						subject = $("#subject").val("[스포일러]");
-					}
-				});
+			
+			/* 과거코드1
+			$("#spoiler").prop("checked")
+				if (true){
+				subject = $("#subject").val("[스포일러]");
 			}
-			//
+			*/
+			
+			/*  과거코드2
+				function checkElementExist(spoiler){
+				if(document.getElementById(spoiler)){
+					subject = $("#subject").val("[스포일러]");
+				}
+			}*/
+			
+			/* 과거코드3
+			if($("#spoiler").is(":checked")){
+				subject = $("#subject").val("[스포일러]");
+			}
+			*/
+			
+			/*  과거코드4
+			$('input:checkbox[id="spoiler"]').is(":checked")
+				if(this.checked) {
+					subject = $("#subject").val("[스포일러]");
+				}
+			*/
+			
+			/*   과거코드5
+			$("#spoiler").prop("checked", true);
+				if(true) {
+					subject = $("#subject").val("[스포일러]");
+				}
+			*/
+			$("#spoiler").is(":checked");
+			if($("#spoiler").is(":checked") == true){
+			    console.log('체크된 상태');
+				  
+			    //const newData = spoiler ? Object.values(spoiler) : [];
+			    
+			    subject = $("#subject").val("[스포일러]");
+			}
+			
+	
 			$.ajax({
 				//request
 				type:"post"
