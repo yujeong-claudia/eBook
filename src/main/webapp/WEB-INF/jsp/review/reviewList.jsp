@@ -23,7 +23,7 @@
 							<c:choose>
 								<%-- 제목이 스포일러라면 빨간색으로 처리한다 --%>
 								<c:when test="${review.subject eq '[스포일러]'}">
-									<a href="/review/review-detail-view?reviewId=${review.id}" class="text-danger font-weight-bold" data-toggle="modal" data-target="#modal">${review.subject}</a>
+									<a href="/review/review-detail-view?reviewId=${review.id}" class="text-danger font-weight-bold" data-toggle="modal" data-target="#modal" data-review-id="${review.id}">${review.subject}</a>
 								</c:when>
 								<%-- 조건이 없다면 그냥 나오게 한다 --%>
 								<c:otherwise>
@@ -44,43 +44,36 @@
 	</div>
 </div>
 
-<!-- Modal
-<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  	<%-- 
-  		modal-sm: 작은 모달창 
-  		modal-dialog-centered: 수직 기준 가운데 위치
-  	--%>
-  	<div class="modal-dialog modal-sm modal-dialog-centered">
-    	<div class="modal-content text-center">
-    		<div class="py-3 border-bottom">
-				<a href="/review/review-create-view?bookId=${book.id}" id="review">리뷰작성</a>      
-    		</div>
-    		<div class="py-3">
-				<a href="location.reload()" data-dismiss="modal">취소하기</a>      
-    		</div>
-    	</div>
-  	</div>
-</div>
--->
+<!-- 리뷰 스포일러 Modal-->
 
-<div class="modal" tabindex="-1">
+<div class="modal" id="modal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">리뷰 스포일러</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <p>스포일러가 담긴 내용입니다.<br> 내용을 보시겠습니까?</p>
       </div>
       <div class="modal-footer d-flex">
-        	<div class="py-3 border-bottom">
-				<a href="/review/review-create-view?bookId=${book.id}" id="review">네</a>      
-    		</div>
     		<div class="py-3">
-				<a href="location.reload()" data-dismiss="modal">아니요</a>      
+				<a href="location.reload()" data-dismiss="modal" class="btn btn-secondary">아니요</a>      
     		</div>
+        	<div class="py-3 border-bottom">
+				<a href="/review/review-detail-view?reviewId=${review.id}" id="modalOkay" class="btn btn-primary">네, 볼래요!</a>      
+    		</div>		
       </div>
     </div>
   </div>
-</div>
+</div> 
+
+<script>
+	$(document).ready(function(){
+		// 모달안에 확인버튼 클릭
+		$("#modalOkay").on('click', function(){
+			alert("확인 후 이동") // 된다
+			location.href = "/review/review-detail-view?reviewId=${review.id}"
+		});
+	});
+
+</script>

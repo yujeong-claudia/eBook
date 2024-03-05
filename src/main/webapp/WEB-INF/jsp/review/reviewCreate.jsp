@@ -58,39 +58,6 @@
 				
 			// 체크박스
 			
-			/* 과거코드1
-			$("#spoiler").prop("checked")
-				if (true){
-				subject = $("#subject").val("[스포일러]");
-			}
-			*/
-			
-			/*  과거코드2
-				function checkElementExist(spoiler){
-				if(document.getElementById(spoiler)){
-					subject = $("#subject").val("[스포일러]");
-				}
-			}*/
-			
-			/* 과거코드3
-			if($("#spoiler").is(":checked")){
-				subject = $("#subject").val("[스포일러]");
-			}
-			*/
-			
-			/*  과거코드4
-			$('input:checkbox[id="spoiler"]').is(":checked")
-				if(this.checked) {
-					subject = $("#subject").val("[스포일러]");
-				}
-			*/
-			
-			/*   과거코드5
-			$("#spoiler").prop("checked", true);
-				if(true) {
-					subject = $("#subject").val("[스포일러]");
-				}
-			*/
 			$("#spoiler").is(":checked");
 			if($("#spoiler").is(":checked") == true){
 			    console.log('체크된 상태');
@@ -102,6 +69,7 @@
 			console.log(bookId);
 			console.log(subject);
 			console.log(content);
+			
 			$.ajax({
 				//request
 				type:"post"
