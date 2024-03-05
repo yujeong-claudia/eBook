@@ -12,11 +12,6 @@ import com.ebook.book.domain.BookView;
 public interface BookMapper {
 	public List<Book> selectBookList();
 	
-	// 삭제 예정
-//	public List<Book> selectBookListByBookNameAuthor(
-//			@Param("bookName") String bookName, 
-//			@Param("author") String author);
-
 	public List<Book> selectBookListByBookName(String bookName);
 	
 	public Book selectBookById(int id);

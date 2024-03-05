@@ -18,19 +18,17 @@ public class BookSearchController {
 	@Autowired
 	private BookBO bookBO;
 	
-	// 책 검색화면
+	/**
+	 * 책 검색화면
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/bookSearch/bookSearch-view")
-	public String bookSearchView(
-			Model model) {
+	public String bookSearchView(Model model) {
 		
 		//db select
 		List<Book> bookList = bookBO.getBookList();
 		
-		//db select 검색
-		//Book book = bookBO.getBookById(bookId);
-		//List<Book> bookSearch = bookBO.getBookListByBookNameAuthor(bookName, author);
-		
-		//model.addAttribute("bookSearch", bookSearch);
 		model.addAttribute("bookList", bookList);
 		model.addAttribute("viewName", "bookSearch/bookSearch");
 		return "template/layout";

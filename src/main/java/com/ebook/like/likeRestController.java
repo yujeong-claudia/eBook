@@ -18,6 +18,12 @@ public class likeRestController {
 	@Autowired
 	private LikeBO likeBO;
 	
+	/**
+	 * 좋아요/해제 API
+	 * @param bookId
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("/like/{bookId}")
 	public Map<String, Object> likeToggle(
 			@PathVariable(name = "bookId") int bookId,

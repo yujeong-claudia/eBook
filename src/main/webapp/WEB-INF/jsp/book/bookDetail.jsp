@@ -41,7 +41,7 @@
 		<div>
 			<a href="/book/book-content-view?bookId=${bookView.book.id}" class="readBtn btn btn-dark w-100 mt-3">전자책 보기</a>
 		</div>
-		<a href="/review/review-list-view?bookId=${bookView.book.id}" class="readReview btn btn-secondary w-100 mt-2">리뷰 보러가기</a>
+		<a href="/review/review-list-view?bookId=${bookView.book.id}" class="readReview btn btn-secondary w-100 mt-2 mb-5">리뷰 보러가기</a>
 		</c:forEach>
 	</div>
 </div>

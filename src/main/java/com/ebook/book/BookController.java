@@ -37,13 +37,14 @@ public class BookController {
 		Integer userId = (Integer)session.getAttribute("userId");
 		List<BookView> bookViewList = bookBO.generateBookViewList(bookName, userId);
 		
+		
 		model.addAttribute("bookViewList", bookViewList);
 		model.addAttribute("viewName", "book/bookDetail");
 		return "template/layout";
 	}
 	
 	/**
-	 * 책 내용 화면
+	 * 책 내용화면
 	 * @param bookId
 	 * @param model
 	 * @param session
