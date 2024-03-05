@@ -2,15 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="d-flex justify-content-center">
-	<!-- 검색 영역 -->
-	<div class="col-5">
-		<div class="input-group">
-			<input type="text" class="form-control" placeholder="제목, 저자 검색">
-			<div class="input-group-append">
-				<input  class="btn btn-light" type="button">검색</button>
-				<!-- <button class="btn btn-light" type="button">검색</button>-->
+	<div class="col-5">			<!-- /bookSearch/bookSearch-view -->
+		<!-- 검색 영역 -->           <!-- /book/book-detail-view?bookName=${book.bookName} -->
+		<form id="searchForm" method="get" action="/book/book-detail-view?bookName=${book.bookName}">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="제목, 저자 검색">
+				<div class="input-group-append">
+					<input type="submit" value="검색" class="btn btn-light">
+				</div>
 			</div>
-		</div>
+		</form>
+		<!-- 인기 순위 -->
 		<div class="mt-5">
 			<h3 class="font-weight-bold">인기순위</h3>
 		</div>
@@ -38,10 +40,15 @@
 	$(document).ready(function() {
 		
 		// 검색하기
+		$("#searchForm").on('submit', function(e){
+			e.preventDefault(); // 이동x
+			alert("검색하기");
+			$(this).submit(); // 이동
+		});
 		
 		// 배너 클릭이벤트
 		$("#img").on('click', function() {
-			alert("배너 클릭시 이동")
+			//alert("배너 클릭시 이동")
 			
 			// src를 가져온다.
 			let img = document.getElementById("img").src;

@@ -18,6 +18,27 @@
 			`book`
 	</select>
 	
+	<!--  삭제예정
+	<select id="selectBookListByBookNameAuthor" parameterType="map" resultType="com.ebook.book.domain.Book">
+		SELECT
+			`id`
+			,`bookCoverPath`
+			,`bookName`
+			,`author`
+			,`genre`
+			,`page`
+			,`publisher`
+			,`content`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`book`
+		WHERE
+			`bookName` = #{bookName}
+			AND `author` = #{author}	
+	
+	</select>-->
+	
 	<select id="selectBookListByBookName" parameterType="String" resultType="com.ebook.book.domain.Book">
 		SELECT
 			`id`

@@ -61,6 +61,11 @@ public class BookBO {
 		return bookMapper.selectBookList();
 	} 
 	
+	// 북서치 검색 -> 삭제예정
+//	public List<Book> getBookListByBookNameAuthor(String bookName, String author) {
+//		return bookMapper.selectBookListByBookNameAuthor(bookName, author);
+//	} 
+	
 	// 아래 코드들 필요한지 확인 -> 북 디테일에 필요함
 //	public List<Book> getBookListByBookName(String bookName) {
 //		return bookMapper.selectBookListByBookName(bookName);
