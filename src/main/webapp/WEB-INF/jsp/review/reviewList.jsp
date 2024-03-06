@@ -56,24 +56,15 @@
         <p>스포일러가 담긴 내용입니다.<br> 내용을 보시겠습니까?</p>
       </div>
       <div class="modal-footer d-flex">
-    		<div class="py-3">
-				<a href="location.reload()" data-dismiss="modal" class="btn btn-secondary">아니요</a>      
-    		</div>
-        	<div class="py-3 border-bottom">
-				<a href="/review/review-detail-view?reviewId=${review.id}" id="modalOkay" class="btn btn-primary">네, 볼래요!</a>      
-    		</div>		
+    	<div class="py-3">
+			<a href="location.reload()" data-dismiss="modal" class="btn btn-secondary">아니요</a>      
+    	</div>
+        <div class="py-3 border-bottom">
+        <c:forEach items="${reviewList}" var="review">
+			<a href="/review/review-detail-view?reviewId=${review.id}" id="modalOkay" class="btn btn-primary">네, 볼래요!</a>      
+    	</c:forEach>
+    	</div>		
       </div>
     </div>
   </div>
-</div> 
-
-<script>
-	$(document).ready(function(){
-		// 모달안에 확인버튼 클릭
-		$("#modalOkay").on('click', function(){
-			alert("확인 후 이동") // 된다
-			location.href = "/review/review-detail-view?reviewId=${review.id}"
-		});
-	});
-
-</script>
+</div>
