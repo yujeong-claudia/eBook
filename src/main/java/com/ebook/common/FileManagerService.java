@@ -17,7 +17,8 @@ public class FileManagerService {
 	// 집용, 노트북용
 	//public static final String FILE_UPLOAD_PATH = "C:\\kimyujeong\\7.project\\workspace\\images/";
 	// 학원용
-	public static final String FILE_UPLOAD_PATH = "D:\\KIMYUJEONG\\7_project\\ebook\\workspace\\images/";
+	//public static final String FILE_UPLOAD_PATH = "D:\\KIMYUJEONG\\7_project\\ebook\\workspace\\images/";
+	public static final String FILE_UPLOAD_PATH = "/home/ec2-user/images/";
 	
 	// input: File 원본, 		output: 이미지 경로
 	public String saveFile(MultipartFile file) {
